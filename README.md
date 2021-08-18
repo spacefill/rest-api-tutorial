@@ -20,7 +20,7 @@ curl -X 'POST' \
   "item_reference": "POTATOES2KG",
   "designation": "Potatoes 2Kg",
   "each_barcode_type": "EAN",
-  "each_barcode": "string",
+  "each_barcode": "5901234123457",
   "each_quantity_by_pallet": 50,
   "each_is_stackable": true,
   "pallet_is_stackable": false,
