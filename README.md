@@ -1,6 +1,6 @@
-# SpaceFill Order Management System REST API usage tutorial
+# SpaceFill OMS REST API usage tutorial
 
-For more information about Order Management System see this Wikipedia article: https://en.wikipedia.org/wiki/Order_management_system
+For more information about OMS (Order Management System) see this Wikipedia article: https://en.wikipedia.org/wiki/Order_management_system
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
