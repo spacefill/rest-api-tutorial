@@ -7,6 +7,7 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
 Before to build and execute HTTP request, you need to take some data in https://app.spacefill.fr
 
 - Your API Token
+- The warehouse id where you want store your merchandises
 
 Before create a `orders`, we need to create some `master-items`:
 
@@ -59,5 +60,36 @@ curl -X 'POST' \
   "pallet_gross_weight_in_kg": null,
   "pallet_net_weight_in_kg": 70,
   "each_gross_weight_in_kg": 1
+}'
+```
+
+After this `master-items` creation, we can create an `orders` entry with this items:
+
+```sh
+curl -X 'POST' \
+  'https://api.spacefill.fr/v1/logistic_management/orders/' \
+  -H 'accept: application/json' \
+  -H 'x_token: secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "shipper_order_reference": "BL20210818001",
+  "warehouse_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "order_type": "ENTRY",
+  "planned_execution_datetime_range": {
+    "datetime_from": "2021-08-20T08:00:00",
+    "datetime_to": "2021-08-20T12:00:00"
+  },
+  "items": [
+    {
+      "item_reference": "POTATOES2KG",
+      "item_packaging_type": "PALLET",
+      "expected_quantity": 10
+    },
+    {
+      "item_reference": "CARROT1KG",
+      "item_packaging_type": "PALLET",
+      "expected_quantity": 15
+    },
+  ]
 }'
 ```
