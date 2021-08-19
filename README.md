@@ -4,12 +4,12 @@ For more information about OMS (Order Management System) see this Wikipedia arti
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
-Before to build and execute HTTP request, you need to take some data in https://app.spacefill.fr
+Before building and executing any HTTP request, you need to retrieve some data from https://app.spacefill.fr
 
 - Your API Token
 - The warehouse id where you want store your merchandises
 
-Before create a `orders`, we need to create some `master-items`:
+Before creating an `orders`, we need to create some `master-items`:
 
 ```sh
 curl -X 'POST' \
@@ -63,7 +63,7 @@ curl -X 'POST' \
 }'
 ```
 
-After this `master-items` creation, we can create an `orders` entry with this items:
+After these `master-items` creation, we can create an `orders` entry with those items:
 
 ```sh
 curl -X 'POST' \
