@@ -93,3 +93,67 @@ curl -X 'POST' \
   ]
 }'
 ```
+
+## How can a client get orders.status update (events) information?
+
+Two implementations are possible: « Pull method ([polling](https://en.wikipedia.org/wiki/Polling_(computer_science))) » or « [Push method](https://en.wikipedia.org/wiki/Push_technology) ([with Webhook](https://en.wikipedia.org/wiki/Webhook)) »
+
+### Client pull method
+
+Client execute for instance all 5min this HTTP request with `since` parameter with value `NOW - 6mins` :
+
+```sh
+curl -X 'POST' \
+  'https://api.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
+  -H 'accept: application/json' \
+  -H 'x_token: secret' \
+{
+  "total": 0,
+  "items": [
+  ]
+}
+```
+
+If the result is empty, the client has nothing to do.
+
+5 minutes later, the client executes the same request again:
+
+```sh
+curl -X 'POST' \
+  'https://api.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
+  -H 'accept: application/json' \
+  -H 'x_token: secret' \
+{
+  "total": 1,
+  "items": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      ...
+      "status": "COMPLETED_ORDER_STATE",
+      ...
+    }
+  ]
+}
+```
+
+Now, in this example, there is one item in response, so the client can handle this item, read the new status value...
+
+### Server push method with webhook
+
+The client can set up a webhook with the following HTTP request:
+
+```sh
+$ curl -X 'POST' \
+  'http://127.0.0.1:5004/v1/logistic_management/orders/hooks' \
+  -H 'accept: application/json' \
+  -H 'x_token: secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "target_url": "https://example.com/foobar/"
+}'
+{
+  "result": "ok"
+}
+```
+
+Then, with this webhook configured, every order update will send a POST HTTP request to https://example.com/foobar/ url with the order's data in POST payload, so that the client can handle all order update events in "real time".
