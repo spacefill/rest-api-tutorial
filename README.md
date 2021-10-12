@@ -32,7 +32,7 @@ SpaceFill API documentation reference is available at (powered by [Swagger](http
 
 ## Getting started
 
-Before executing any requests you must setup your token, it must be used as `x_token` header value.
+Before executing any requests you must setup your token, it must be used as `Bearer` authentification in `Authorization` header value.
 
 Before creating an `orders`, we need to create some `master-items`:
 
@@ -40,7 +40,7 @@ Before creating an `orders`, we need to create some `master-items`:
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/master_items/' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "item_reference": "POTATOES2KG",
@@ -66,7 +66,7 @@ $ curl -sLX 'POST' \
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/master_items/' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "item_reference": "CARROT1KG",
@@ -94,7 +94,7 @@ After these `master-items` creation, we can create an entry `order` with those i
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "shipper_order_reference": "REF_01",
@@ -141,7 +141,7 @@ Or an exit `order` with those items:
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/exit' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "shipper_order_reference": "REF_01",
@@ -207,7 +207,7 @@ Client execute for instance all 5min this HTTP request with `since` parameter wi
 curl -X 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
 {
   "total": 0,
   "items": [
@@ -223,7 +223,7 @@ If the result is empty, the client has nothing to do.
 curl -X 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
 {
   "total": 1,
   "items": [
@@ -247,7 +247,7 @@ The client can set up a webhook with the following HTTP request:
 $ curl -X 'POST' \
   'http://127.0.0.1:5004/v1/logistic_management/orders/hooks' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "target_url": "https://example.com/foobar/"

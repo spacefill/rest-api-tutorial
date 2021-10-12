@@ -14,7 +14,7 @@ To create an entry `order` with two items:
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "shipper_order_reference": "REF_01",
@@ -122,7 +122,7 @@ To create an exit `order` with two items:
 $ curl -sLX 'POST' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/exit' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' \
+  -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
   "shipper_order_reference": "REF_01",
@@ -224,7 +224,7 @@ $ curl -sLX 'POST' \
 $ curl -sLX 'GET' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/701d1c8e-f77d-4ec1-9242-ad9896d50001' \
   -H 'accept: application/json' \
-  -H 'x_token: secret'
+  -H 'Authorization: Bearer secret'
 {
   "id": "701d1c8e-f77d-4ec1-9242-ad9896d50001",
   "iid": "MV-20200105-001",
@@ -315,7 +315,7 @@ $ curl -sLX 'GET' \
 $  curl -sLX 'GET' \
   'https://api.sandbox.spacefill.fr/v1/logistic_management/orders' \
   -H 'accept: application/json' \
-  -H 'x_token: secret' | jq
+  -H 'Authorization: Bearer secret' | jq
 {
   "total": 2,
   "items": [
