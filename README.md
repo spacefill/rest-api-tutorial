@@ -117,7 +117,7 @@ $ curl -sLX 'POST' \
   "entry_expeditor_planned_datetime_range": {
     "datetime_from": "2021-09-28T15:12:41.538Z",
     "datetime_to": "2021-09-28T15:12:41.538Z"
-  }
+  },
   "order_items": [
     {
       "master_item_id": "13acc10a-a6ab-4099-b600-fb33fa6c0001",
