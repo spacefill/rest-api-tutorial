@@ -4,12 +4,14 @@ For more information about OMS (Order Management System) see this Wikipedia arti
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
-- [Environments](#environments)
-- [Getting started](#getting-started)
-- [CRUD list](#crud-list)
-- [How can a client get orders.status update (events) information?](#how-can-a-client-get-ordersstatus-update-events-information)
-  - [Client pull method](#client-pull-method)
-  - [Server push method with webhook](#server-push-method-with-webhook)
+
+* [Environments](#environments)
+* [Getting started](#getting-started)
+* [CRUD list](#crud-list)
+* [FAQ](#faq)
+  * [How can a client get orders.status update (events) information?](#how-can-a-client-get-orders.status-update-(events)-information?)
+    * [Client pull method](#client-pull-method)
+    * [Server push method with webhook](#server-push-method-with-webhook)
 
 ## Environments
 
@@ -195,11 +197,13 @@ You can get more information about CRUD on each resource using the following lin
 
 - [Orders](./crud/orders.md)
 
-## How can a client get orders.status update (events) information?
+## FAQ
+
+### How can a client get orders.status update (events) information?
 
 Two implementations are possible: « Pull method ([polling](https://en.wikipedia.org/wiki/Polling_(computer_science))) » or « [Push method](https://en.wikipedia.org/wiki/Push_technology) ([with Webhook](https://en.wikipedia.org/wiki/Webhook)) »
 
-### Client pull method
+#### Client pull method
 
 Client execute for instance all 5min this HTTP request with `updated_after` parameter with value `NOW - 6mins` :
 
@@ -239,7 +243,7 @@ curl -X 'POST' \
 
 Now, in this example, there is one item in response, so the client can handle this item, read the new status value...
 
-### Server push method with webhook
+#### Server push method with webhook
 
 The client can set up a webhook with the following HTTP request:
 
