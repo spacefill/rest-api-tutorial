@@ -201,11 +201,11 @@ Two implementations are possible: « Pull method ([polling](https://en.wikipedia
 
 ### Client pull method
 
-Client execute for instance all 5min this HTTP request with `since` parameter with value `NOW - 6mins` :
+Client execute for instance all 5min this HTTP request with `updated_after` parameter with value `NOW - 6mins` :
 
 ```sh
 curl -X 'POST' \
-  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?updated_after=2021-09-10T20:10:00' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer secret' \
 {
@@ -221,7 +221,7 @@ If the result is empty, the client has nothing to do.
 
 ```sh
 curl -X 'POST' \
-  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?since=20210910201000' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/?updated_after=2021-09-10T20:10:00' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer secret' \
 {
