@@ -4,7 +4,6 @@ For more information about OMS (Order Management System) see this Wikipedia arti
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
-
 * [Environments](#environments)
 * [Getting started](#getting-started)
 * [CRUD list](#crud-list)
@@ -12,6 +11,7 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
   * [How can a client get orders.status update (events) information?](#how-can-a-client-get-orders.status-update-(events)-information?)
     * [Client pull method](#client-pull-method)
     * [Server push method with webhook](#server-push-method-with-webhook)
+  * [How to manage order documents (attachments)?](#how-to-manage-order-documents-(attachments)?)
 
 ## Environments
 
@@ -262,3 +262,65 @@ $ curl -X 'POST' \
 ```
 
 Then, with this webhook configured, every order update will send a POST HTTP request to https://example.com/foobar/ url with the order's data in POST payload, so that the client can handle all order update events in "real time".
+
+### How to manage order documents (attachments)?
+
+You can attach a file to `order` with [`POST
+/v1/logistic_management/orders/{order_id}/documents/`](https://api.spacefill.fr/docs#/logistic-management/post_v1_logistic_management_order_upload_document_v1_logistic_management_orders__order_id__documents__post) endpoint.
+
+Example:
+
+```sh
+$ curl -X 'POST' \
+  'http://api.spacefill.fr/v1/logistic_management/orders/701d1c8e-f77d-4ec1-9242-ad9896d50001/documents/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer shipper_api_token_0001' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'file=@test-assets/document1.pdf;type=image/pdf'
+
+{"id":"bd2a9626-4e19-42fb-9e7a-60bc6e813a4f","name":"document1.pdf","type":[],"created_at":"2022-03-13T10:27:41.536837+00:00"}%
+```
+
+Next, you can find this "order documents" in `documents` field in the result of [`GET
+/v1/logistic_management/orders/{order_id}/`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_order_v1_logistic_management_orders__order_id___get) endpoint.
+
+Example:
+
+```sh
+$ curl -X 'GET' \
+  'http://api.spacefill.fr/v1/logistic_management/orders/701d1c8e-f77d-4ec1-9242-ad9896d50001/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer shipper_api_token_0001'
+
+{
+  "id": "701d1c8e-f77d-4ec1-9242-ad9896d50001",
+  "iid": "MV-20200105-001",
+
+  ...
+
+  "documents": [
+    {
+      "id": "bd2a9626-4e19-42fb-9e7a-60bc6e813a4f",
+      "name": "document1.pdf",
+      "type": [],
+      "created_at": "2022-03-13T10:27:41.536837+00:00"
+    }
+  ],
+
+  ...
+}
+```
+
+You can also download the "order document" with [`GET /v1/logistic_management/orders/{order_id}/documents/{document_id}/download`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_order_download_document_v1_logistic_management_orders__order_id__documents__document_id__download_get) endpoint.
+
+Example:
+
+```
+$ curl -X 'GET' \
+  'http://api.spacefill.fr/v1/logistic_management/orders/701d1c8e-f77d-4ec1-9242-ad9896d50001/documents/bd2a9626-4e19-42fb-9e7a-60bc6e813a4f/download' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer shipper_api_token_0001' --output document1.pdf
+```
+
+Note: the endpoint to delete an order documents isn't implémented yet, if you need it right away, write to
+<stephane@spacefill.fr>.
