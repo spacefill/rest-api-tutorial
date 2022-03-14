@@ -2,6 +2,11 @@
 
 See complete orders API endpoints on https://api.sandbox.spacefill.fr/docs
 
+* [Examples](#examples)
+  * [Create](#create)
+  * [Get](#get)
+* [List](#list)
+
 ## Examples
 
 In the following examples, each request uses [`jq`](https://stedolan.github.io/jq/) to parse and render the JSON, don't forget to remove it if you do some copy/paste.
