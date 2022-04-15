@@ -8,10 +8,12 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
 * [Getting started](#getting-started)
 * [CRUD list](#crud-list)
 * [FAQ](#faq)
+  * [What is the definition of the different order status?](#what-is-the-definition-of-the-different-order-status?)
   * [How can a client get orders.status update (events) information?](#how-can-a-client-get-orders.status-update-(events)-information?)
     * [Client pull method](#client-pull-method)
     * [Server push method with webhook](#server-push-method-with-webhook)
   * [How to manage order documents (attachments)?](#how-to-manage-order-documents-(attachments)?)
+
 
 ## Environments
 
@@ -198,6 +200,21 @@ You can get more information about CRUD on each resource using the following lin
 - [Orders](./crud/orders.md)
 
 ## FAQ
+
+### What is the definition of the different order status?
+
+Here are the different order status and their definitions:
+
+- `WAREHOUSE_NEEDS_TO_CONFIRM_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill OMS.<br />
+  When a "order" is created by shipper user, the logistic provider must confirm that it is available to receive/ship
+  goods in this time slot.
+- `SHIPPER_NEEDS_TO_SUGGEST_NEW_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill OMS.<br />
+  When a "order" is created by shipper user, if the warehouse time slot is not available, then the shipper user must
+  suggest a new time slot.
+- `ORDER_IS_READY_TO_BE_EXECUTED_STATE`: everything is ready, the "order" is awaiting completion.
+- `CANCELED_ORDER_STATE`: The "order" is cancelled by the shipper user.
+- `COMPLETED_ORDER_STATE`: The "order" is completed by the logistic provider, the "order" has been received or shipped.
+- `FAILED_ORDER_STATE`: The "order" was planned, but the truck did not show up.
 
 ### How can a client get orders.status update (events) information?
 
