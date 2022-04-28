@@ -14,6 +14,7 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
     * [Server push method with webhook](#server-push-method-with-webhook)
   * [How to manage order documents (attachments)?](#how-to-manage-order-documents-(attachments)?)
 
+See also: [CHANGELOG.md](./CHANGELOG.md)
 
 ## Environments
 

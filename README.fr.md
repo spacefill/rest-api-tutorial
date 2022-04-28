@@ -5,6 +5,8 @@ Une version plus complète de cette documentation est disponible en anglais : [R
 * [FAQ](#faq)
   * [Quelle est la définition des différents statuts des "orders" ?](#quelle-est-la-définition-des-différents-statuts-des-"orders"-?)
 
+Voir aussi : [CHANGELOG.md](./CHANGELOG.md)
+
 ## FAQ
 
 ### Quelle est la définition des différents statuts des "orders" ?
