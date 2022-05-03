@@ -1,5 +1,11 @@
 # api.spacefill.fr changelog
 
+## 2022-05-03
+
+- `master_items.transfered_to_erp_at`, `master_items.transfered_to_wms_at` and `master_items.transfered_to_tms_at` fields
+   are automatically reset (set to `null`) on each API or Web interface `master_items` update events
+- `orders.transfered_to_erp_at`, `orders.transfered_to_wms_at` and `orders.transfered_to_tms_at` fields
+   are automatically reset (set to `null`) on each API or Web interface `orders` update events
 
 ## 2022-04-27
 
