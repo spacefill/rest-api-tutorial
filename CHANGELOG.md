@@ -1,5 +1,86 @@
 # api.spacefill.fr changelog
 
+## 2022-05-17
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/master_items/`:
+  - accept these new url query filters:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `POST /v1/logistic_management/master_items/`:
+  - accept these new fields in request input:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `GET /v1/logistic_management/master_items/{master_item_id}/`: return these new fields in response:
+  - `edi_erp_id`
+  - `edi_wms_id`
+  - `edi_tms_id`
+- `PUT /v1/logistic_management/master_items/{master_item_id}/`:
+  - accept these new fields in request input:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `PATCH /v1/logistic_management/master_items/{master_item_id}/`:
+  - accept these new fields in request input:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `GET /v1/logistic_management/orders/`:
+  - accept these new url query filters:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `GET /v1/logistic_management/orders/{order_id}/`: return these new fields in response:
+  - `edi_erp_id`
+  - `edi_wms_id`
+  - `edi_tms_id`
+- `POST /v1/logistic_management/orders/entry/`:
+  - accept these new fields in request input:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `POST /v1/logistic_management/orders/exit/`:
+  - accept these new fields in request input:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+  - return these new fields in response:
+    - `edi_erp_id`
+    - `edi_wms_id`
+    - `edi_tms_id`
+- `PATCH /v1/logistic_management/orders/{order_id}/`: return these new fields in response:
+  - `edi_erp_id`
+  - `edi_wms_id`
+  - `edi_tms_id`
+
+
 ## 2022-05-10
 
 - Endpoint that is now implemented:
@@ -7,6 +88,7 @@
 
 - New endpoint not implemented:
   - `POST /v1/logistic_management/inventory_adjustments/`, more info see [Swagger documentation](https://api.spacefill.fr/docs#/logistic-management%20(not%20implemented)/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post)
+
 
 ## 2022-05-03
 

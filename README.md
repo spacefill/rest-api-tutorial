@@ -63,7 +63,10 @@ $ curl -sLX 'POST' \
   "pallet_height_in_cm": 100,
   "pallet_gross_weight_in_kg": null,
   "pallet_net_weight_in_kg": 100,
-  "each_gross_weight_in_kg": 2
+  "each_gross_weight_in_kg": 2,
+  "edi_erp_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_wms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_tms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd"
 }'
 ```
 
@@ -89,7 +92,10 @@ $ curl -sLX 'POST' \
   "pallet_height_in_cm": 100,
   "pallet_gross_weight_in_kg": null,
   "pallet_net_weight_in_kg": 70,
-  "each_gross_weight_in_kg": 1
+  "each_gross_weight_in_kg": 1,
+  "edi_erp_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_wms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_tms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd"
 }'
 ```
 
@@ -119,6 +125,9 @@ $ curl -sLX 'POST' \
   "entry_expeditor_address_zip": "75020",
   "entry_expeditor_address_city": "Paris",
   "entry_expeditor_address_country": "France",
+  "edi_erp_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_wms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_tms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
   "entry_expeditor_planned_datetime_range": {
     "datetime_from": "2021-09-28T15:12:41.538Z",
     "datetime_to": "2021-09-28T15:12:41.538Z"
@@ -166,6 +175,9 @@ $ curl -sLX 'POST' \
   "exit_final_recipient_address_zip": "75020",
   "exit_final_recipient_address_city": "Paris",
   "exit_final_recipient_address_country": "France",
+  "edi_erp_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_wms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "edi_tms_id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
   "exit_final_recipient_planned_datetime_range": {
     "datetime_from": "2021-09-28T15:12:41.538Z",
     "datetime_to": "2021-09-28T15:12:41.538Z"
@@ -193,6 +205,8 @@ You can now view your data on Spacefill app at `https://app.spacefill.fr`:
   [<img src='spacefill-app-orders-view.png' width='600' />](./spacefill-app-orders-view.png)
 - To view your master_items go to [`https://app.spacefill.fr/logistic-management/inventory/items/`](https://app.spacefill.fr/logistic-management/inventory/items/)
   [<img src='spacefill-app-master-items-view.png' width='600' />](./spacefill-app-master-items-view.png)
+
+The `edi_erp_id`, `edi_wms_id` and `edi_tms_id` fields can be used to identify the `master_item` or `order` on your own ERP, WMS or TMS implementation. These fields can only be fetched, inserted and updated using the API. They are not visible on the Spacefill app.
 
 ## CRUD list
 
