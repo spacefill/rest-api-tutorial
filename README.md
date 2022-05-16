@@ -4,15 +4,17 @@ For more information about OMS (Order Management System) see this Wikipedia arti
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
-* [Environments](#environments)
-* [Getting started](#getting-started)
-* [CRUD list](#crud-list)
-* [FAQ](#faq)
-  * [What is the definition of the different order status?](#what-is-the-definition-of-the-different-order-status?)
-  * [How can a client get orders.status update (events) information?](#how-can-a-client-get-orders.status-update-(events)-information?)
-    * [Client pull method](#client-pull-method)
-    * [Server push method with webhook](#server-push-method-with-webhook)
-  * [How to manage order documents (attachments)?](#how-to-manage-order-documents-(attachments)?)
+- [SpaceFill OMS REST API usage tutorial](#spacefill-oms-rest-api-usage-tutorial)
+  - [Environments](#environments)
+  - [Getting started](#getting-started)
+  - [CRUD list](#crud-list)
+  - [FAQ](#faq)
+    - [What is the definition of the different order status?](#what-is-the-definition-of-the-different-order-status)
+    - [How can a client get orders.status update (events) information?](#how-can-a-client-get-ordersstatus-update-events-information)
+      - [Client pull method](#client-pull-method)
+      - [Server push method with webhook](#server-push-method-with-webhook)
+    - [How to manage order documents (attachments)?](#how-to-manage-order-documents-attachments)
+    - [How entry_expeditor\* and exit_final_recipient\* fields work on /v1/orders/*](#how-entry_expeditor-and-exit_final_recipient-fields-work-on-v1orders)
 
 See also: [CHANGELOG.md](./CHANGELOG.md)
 
@@ -342,3 +344,60 @@ $ curl -X 'GET' \
 
 Note: the endpoint to delete an order documents isn't implémented yet, if you need it right away, write to
 <stephane@spacefill.fr>.
+
+### How entry_expeditor\* and exit_final_recipient\* fields work on /v1/orders/*
+
+If the following fields correspond to an existing address in your [`address-book`](https://app.spacefill.fr/logistic-management/address-book/):
+
+- entry_expeditor
+- entry_expeditor_address_line1
+- entry_expeditor_address_line2
+- entry_expeditor_address_line3
+- entry_expeditor_address_zip
+- entry_expeditor_address_details
+- entry_expeditor_address_city
+- entry_expeditor_address_country
+- entry_expeditor_address_lat
+- entry_expeditor_address_lng
+
+or 
+- exit_final_recipient
+- exit_final_recipient_address_line1
+- exit_final_recipient_address_line2
+- exit_final_recipient_address_line3
+- exit_final_recipient_address_zip
+- exit_final_recipient_address_details
+- exit_final_recipient_address_city
+- exit_final_recipient_address_country
+- exit_final_recipient_address_lat
+- exit_final_recipient_address_lng
+
+then it is reused, otherwise a new address is created and can be reused next times.
+
+For example the first time you execute:
+
+```sh
+$ curl -sLX 'POST' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  ...
+  "entry_expeditor": "Expeditor X",
+  "entry_expeditor_address_line1": "123 Boulevard X",
+  "entry_expeditor_address_line2": "",
+  "entry_expeditor_address_line3": "",
+  "entry_expeditor_address_zip": "75020",
+  "entry_expeditor_address_city": "Paris",
+  "entry_expeditor_address_country": "France",
+  "entry_expeditor_planned_datetime_range": {
+    "datetime_from": "2021-09-28T15:12:41.538Z",
+    "datetime_to": "2021-09-28T15:12:41.538Z"
+  },
+  ...
+}'
+```
+
+We will search for a corresponding address in your [`address-book`](https://app.spacefill.fr/logistic-management/address-book/),
+if the address does not exist we will create it. Then if you execute this query a second time we will use the address created before.
