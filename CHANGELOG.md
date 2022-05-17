@@ -1,5 +1,12 @@
 # api.spacefill.fr changelog
 
+## 2022-05-18
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/master_items/{master_item_id/}`: new `include_forecasted_quantity_at` url query parameter ([more informations](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_master_item_v1_logistic_management_master_items__master_item_id___get))
+
+
 ## 2022-05-17
 
 Updated endpoints:
