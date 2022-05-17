@@ -2,9 +2,13 @@
 
 ## 2022-05-18
 
+New endpoints:
+
+- `POST /v1/logistic_management/inventory_adjustments/`, more information see [Swagger documentation](https://api.spacefill.fr/docs#/logistic-management/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post)
+
 Updated endpoints:
 
-- `GET /v1/logistic_management/master_items/{master_item_id/}`: new `include_forecasted_quantity_at` url query parameter ([more informations](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_master_item_v1_logistic_management_master_items__master_item_id___get))
+- `GET /v1/logistic_management/master_items/{master_item_id/}`: new `include_forecasted_quantity_at` url query parameter (more information see [Swagger documentation](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_master_item_v1_logistic_management_master_items__master_item_id___get))
 
 
 ## 2022-05-17
