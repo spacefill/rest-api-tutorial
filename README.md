@@ -363,28 +363,29 @@ Note: the endpoint to delete an order documents isn't implémented yet, if you n
 
 If the following fields correspond to an existing address in your [`address-book`](https://app.spacefill.fr/logistic-management/address-book/):
 
-- entry_expeditor
-- entry_expeditor_address_line1
-- entry_expeditor_address_line2
-- entry_expeditor_address_line3
-- entry_expeditor_address_zip
-- entry_expeditor_address_details
-- entry_expeditor_address_city
-- entry_expeditor_address_country
-- entry_expeditor_address_lat
-- entry_expeditor_address_lng
+- `entry_expeditor`
+- `entry_expeditor_address_line1`
+- `entry_expeditor_address_line2`
+- `entry_expeditor_address_line3`
+- `entry_expeditor_address_zip`
+- `entry_expeditor_address_details`
+- `entry_expeditor_address_city`
+- `entry_expeditor_address_country`
+- `entry_expeditor_address_lat`
+- `entry_expeditor_address_lng`
 
-or 
-- exit_final_recipient
-- exit_final_recipient_address_line1
-- exit_final_recipient_address_line2
-- exit_final_recipient_address_line3
-- exit_final_recipient_address_zip
-- exit_final_recipient_address_details
-- exit_final_recipient_address_city
-- exit_final_recipient_address_country
-- exit_final_recipient_address_lat
-- exit_final_recipient_address_lng
+or
+
+- `exit_final_recipient`
+- `exit_final_recipient_address_line1`
+- `exit_final_recipient_address_line2`
+- `exit_final_recipient_address_line3`
+- `exit_final_recipient_address_zip`
+- `exit_final_recipient_address_details`
+- `exit_final_recipient_address_city`
+- `exit_final_recipient_address_country`
+- `exit_final_recipient_address_lat`
+- `exit_final_recipient_address_lng`
 
 then it is reused, otherwise a new address is created and can be reused next times.
 
