@@ -1,5 +1,19 @@
 # api.spacefill.fr changelog
 
+## 2022-05-31
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/orders/`:
+  - accept `tms_status` query filter
+  - return `tms_status` field in response in `items`
+- `GET /v1/logistic_management/orders/{order_id}/` return `tms_status` field in response
+- `POST /v1/logistic_management/orders/exit/`
+  - accept `tms_status` in request input
+  - return `tms_status` field in response
+- `PATCH /v1/logistic_management/orders/{order_id}/` accept `tms_status` in request input
+
+
 ## 2022-05-18
 
 New endpoints:
