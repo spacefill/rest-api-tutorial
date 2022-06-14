@@ -1,5 +1,29 @@
 # api.spacefill.fr changelog
 
+## 2022-06-14
+
+New endpoints:
+
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_unloading_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_starts_unloading_action_v1_logistic_management_orders__order_id__warehouse_starts_unloading_action_post=)
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_preparation_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_starts_preparation_action_v1_logistic_management_orders__order_id__warehouse_starts_preparation_action_post=)
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_preparation_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_finishes_preparation_action_v1_logistic_management_orders__order_id__warehouse_finishes_preparation_action_post=)
+
+Updated endpoints:
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - removed `additional_order_items` field from query body
+- `POST /v1/logistic_management/orders/entry/`
+  - accept `item_reference` field in `order_items` array in query body
+  - accept `edi_erp_id` field in `order_items` array in query body
+  - accept `edi_wms_id` field in `order_items` array in query body
+  - accept `edi_tms_id` field in `order_items` array in query body
+- `POST /v1/logistic_management/orders/exit/`
+  - accept `item_reference` field in `order_items` array in query body
+  - accept `edi_erp_id` field in `order_items` array in query body
+  - accept `edi_wms_id` field in `order_items` array in query body
+  - accept `edi_tms_id` field in `order_items` array in query body
+- `POST /v1/logistic_management/master_items`
+  - can now be used by a warehouse-user
+
 ## 2022-05-31
 
 Updated endpoints:
