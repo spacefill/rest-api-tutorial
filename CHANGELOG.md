@@ -17,6 +17,12 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
   - `additional_order_items` field removed, now you can deliver all order items in `order_items`
 
+## 2022-06-07
+
+New endpoints:
+
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_unloading_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_starts_unloading_action_v1_logistic_management_orders__order_id__warehouse_starts_unloading_action_post=)
+
 
 ## 2022-06-03
 
