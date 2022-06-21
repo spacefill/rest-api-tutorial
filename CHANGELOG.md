@@ -1,5 +1,12 @@
 # api.spacefill.fr changelog
 
+## 2022-06-03
+
+Updated endpoints:
+
+- `POST /v1/logistic_management/master_items` can now be used by a `warehouse-user`
+
+
 ## 2022-05-31
 
 Updated endpoints:
