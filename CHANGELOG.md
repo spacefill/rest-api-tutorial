@@ -1,5 +1,21 @@
 # api.spacefill.fr changelog
 
+## 2022-06-14
+
+Updated endpoints:
+
+- `POST /v1/logistic_management/orders/entry/`
+  - accept `item_reference` field in `order_items` array in input request body
+  - accept `edi_erp_id` field in `order_items` array in input request  body
+  - accept `edi_wms_id` field in `order_items` array in input request  body
+  - accept `edi_tms_id` field in `order_items` array in input request  body
+- `POST /v1/logistic_management/orders/exit/`
+  - accept `item_reference` field in `order_items` array in input request body
+  - accept `edi_erp_id` field in `order_items` array in input request  body
+  - accept `edi_wms_id` field in `order_items` array in input request  body
+  - accept `edi_tms_id` field in `order_items` array in input request  body
+
+
 ## 2022-06-03
 
 Updated endpoints:
