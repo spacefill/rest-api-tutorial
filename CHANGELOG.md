@@ -8,17 +8,17 @@ New endpoints:
 
 Updated endpoints:
 
-- `POST /v1/logistic_management/orders/entry/`
+- `POST /v1/logistic_management/orders/entry/`:
   - accept `item_reference` field in `order_items` array in input request body
   - accept `edi_erp_id` field in `order_items` array in input request  body
   - accept `edi_wms_id` field in `order_items` array in input request  body
   - accept `edi_tms_id` field in `order_items` array in input request  body
-- `POST /v1/logistic_management/orders/exit/`
+- `POST /v1/logistic_management/orders/exit/`:
   - accept `item_reference` field in `order_items` array in input request body
   - accept `edi_erp_id` field in `order_items` array in input request  body
   - accept `edi_wms_id` field in `order_items` array in input request  body
   - accept `edi_tms_id` field in `order_items` array in input request  body
-- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
   - `additional_order_items` field removed, now you can deliver all order items in `order_items`
 
 ## 2022-06-07
@@ -43,7 +43,7 @@ Updated endpoints:
   - accept `tms_status` query filter
   - return `tms_status` field in response in `items`
 - `GET /v1/logistic_management/orders/{order_id}/` return `tms_status` field in response
-- `POST /v1/logistic_management/orders/exit/`
+- `POST /v1/logistic_management/orders/exit/`:
   - accept `tms_status` in request input
   - return `tms_status` field in response
 - `PATCH /v1/logistic_management/orders/{order_id}/` accept `tms_status` in request input
