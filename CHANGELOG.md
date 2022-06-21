@@ -2,8 +2,6 @@
 
 ## 2022-06-14
 
-## 2022-06-14
-
 New endpoints:
 
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_preparation_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_finishes_preparation_action_v1_logistic_management_orders__order_id__warehouse_finishes_preparation_action_post=)
