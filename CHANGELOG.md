@@ -20,6 +20,47 @@ Updated endpoints:
   - accept `edi_tms_id` field in `order_items` array in input request  body
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
   - `additional_order_items` field removed, now you can deliver all order items in `order_items`
+- `GET /v1/logistic_management/master_items/{master_item_id}/`
+  - `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id` fields added to `stock_by_warehouse` and `forecasted_quantity_by_warehouse` dictionaries
+- `POST /v1/logistic_management/master_items/`:
+  - a shipper account can be specify by `shipper_account_id`, `edi_erp_shipper_id`, `edi_wms_shipper_id`, or `edi_tms_shipper_id` input field
+- `GET /v1/logistic_management/orders/`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    fields added to `items` object list
+- `GET /v1/logistic_management/orders/{order_id}`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+- `POST /v1/logistic_management/orders/entry/`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+  - a warehouse can be specify by `warehouse_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, or
+    `edi_tms_warehouse_id` input field
+- `POST /v1/logistic_management/orders/exit/`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+  - a warehouse can be specify by `warehouse_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, or
+    `edi_tms_warehouse_id` input field
+- `POST /v1/logistic_management/orders/warehouse_creates_order_action`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+  - a warehouse can be specify by `warehouse_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, or `edi_tms_warehouse_id` input field
+  - a shipper account can be specify by `shipper_account_id`, `edi_erp_shipper_id`, `edi_wms_shipper_id`, or `edi_tms_shipper_id` input field
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_cancels_order_action`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_emits_order_receipt_error_action`:
+  - `edi_erp_shipper_id`, `edi_wms_shipper_id`, `edi_tms_shipper_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id`
+    added to response
+- `POST /v1/logistic_management/inventory_adjustments/`:
+  - `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, `edi_tms_warehouse_id` added to response
+  - a warehouse can be specify by `warehouse_id`, `edi_erp_warehouse_id`, `edi_wms_warehouse_id`, or `edi_tms_warehouse_id` input field
+  - a shipper account can be specify by `shipper_account_id`, `edi_erp_shipper_id`, `edi_wms_shipper_id`, or `edi_tms_shipper_id` input field
 
 ## 2022-06-07
 
