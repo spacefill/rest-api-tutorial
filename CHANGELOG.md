@@ -14,6 +14,8 @@ Updated endpoints:
   - accept `edi_erp_id` field in `order_items` array in input request  body
   - accept `edi_wms_id` field in `order_items` array in input request  body
   - accept `edi_tms_id` field in `order_items` array in input request  body
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - `additional_order_items` field removed, now you can deliver all order items in `order_items`
 
 
 ## 2022-06-03
