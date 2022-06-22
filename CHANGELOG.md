@@ -90,6 +90,13 @@ Updated endpoints:
 - `PATCH /v1/logistic_management/orders/{order_id}/` accept `tms_status` in request input
 
 
+## 2022-05-24
+
+New endpoint:
+
+- `POST /v1/logistic_management/master_items`
+
+
 ## 2022-05-18
 
 New endpoints:
