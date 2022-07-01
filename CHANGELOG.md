@@ -1,5 +1,27 @@
 # api.spacefill.fr changelog
 
+## 2022-06-30
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/orders/`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `GET /v1/logistic_management/orders/{order_id}/`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/orders/entry/`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/orders/exit/`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/orders/warehouse_creates_order_action`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/orders/warehouse_acknowledges_receipt_of_order_action`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/inventory_adjustments/`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+- `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`:
+  - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
+
+
 ## 2022-06-14
 
 New endpoints:
